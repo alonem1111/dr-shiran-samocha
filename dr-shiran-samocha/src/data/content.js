@@ -7,8 +7,6 @@ export const site = {
   url: 'https://www.dr-shirans-esthetics.com',
   logo: '/logo.png',
   aboutImage: '/images/dr-shiran-working.png',
-  phone: '0527789690',
-  phoneDisplay: '052-778-9690',
   locationNote: 'ראשון לציון והסביבה',
   instagram: 'https://www.instagram.com/drshiransamocha',
 }
@@ -133,6 +131,6 @@ export const faqs = [
   {
     question: 'איך אפשר ליצור קשר הכי מהר?',
     answer:
-      'הכי מהיר להשאיר פרטים בטופס קביעת התור באתר — אחזור אליכם בהקדם. אפשר כמובן גם להתקשר ישירות.',
+      'הכי מהיר לקבוע תור באשף הזימון באתר, או להשאיר פרטים בטופס — ואחזור אליכם בהקדם.',
   },
 ]
