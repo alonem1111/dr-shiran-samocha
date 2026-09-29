@@ -380,14 +380,11 @@ function Contact() {
           <p className="section-label">בואו נדבר</p>
           <h2 className="section-title">קביעת תור</h2>
           <p>
-            אפשר לקבוע תור באשף הזימון, או להשאיר פרטים בטופס ואחזור אליכם. אפשר כמובן גם להתקשר ישירות.
+            אפשר לקבוע תור באשף הזימון, או להשאיר פרטים בטופס ואחזור אליכם.
           </p>
           <div className="contact__details">
             <a href="/booking/" className="contact__link">
               🗓️ קביעת תור ביומן
-            </a>
-            <a href={`tel:${site.phone}`} className="contact__link">
-              📞 {site.phoneDisplay}
             </a>
           </div>
           <p className="contact__cta-tagline">{site.taglineEn}</p>
@@ -450,7 +447,7 @@ function Contact() {
           )}
           {status === 'error' && (
             <p className="booking-form__error">
-              אירעה תקלה בשליחה. אפשר לנסות שוב או להתקשר ל-{site.phoneDisplay}.
+              אירעה תקלה בשליחה. אפשר לנסות שוב או לקבוע תור דרך היומן.
             </p>
           )}
           <p className="booking-form__privacy">
@@ -475,7 +472,6 @@ function Footer() {
             Instagram
           </a>
           <a href="/booking/">קביעת תור</a>
-          <a href={`tel:${site.phone}`}>טלפון</a>
         </div>
         <p className="footer__copy">
           © {new Date().getFullYear()} {site.nameEn} · {site.domain} · כל הזכויות שמורות.
