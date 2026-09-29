@@ -1,7 +1,7 @@
 const encoder = new TextEncoder()
 
 function adminEmails() {
-  const raw = process.env.ADMIN_EMAILS || 'alonem1111@gmail.com,shiran8198@gmail.com'
+  const raw = process.env.ADMIN_EMAILS || 'alonem1111@gmail.com,shiran8198@gmail.com,drshiransamocha@gmail.com'
   return raw
     .split(',')
     .map((e) => e.trim().toLowerCase())
