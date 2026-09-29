@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="ד״ר שירן סמוכה — רפואה אסתטית מתקדמת בראשון לציון. תוצאות טבעיות ואלגנטיות: בוטוקס, חומצה היאלורונית, איכות עור ועוד." />
+    <link rel="canonical" href="https://www.dr-shirans-esthetics.com/" />
+    <meta property="og:url" content="https://www.dr-shirans-esthetics.com/" />
+    <meta property="og:title" content="Dr. Shiran Samocha | Medical Aesthetics" />
+    <meta property="og:description" content="תוצאות טבעיות ואלגנטיות — בוטוקס, חומצה היאלורונית, איכות עור ועוד." />
+    <meta property="og:image" content="https://www.dr-shirans-esthetics.com/logo.png" />
+    <meta property="og:locale" content="he_IL" />
+    <link rel="icon" href="/logo.png" type="image/png" />
+    <title>Dr. Shiran Samocha | Medical Aesthetics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Heebo:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- Netlify form detection (the real forms are rendered by React) -->
+    <form name="booking" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="שם מלא" />
+      <input type="tel" name="טלפון" />
+      <input type="text" name="טיפול מבוקש" />
+      <input type="text" name="זמן מועדף" />
+      <textarea name="הערות"></textarea>
+      <input type="hidden" name="subject" />
+      <input name="bot-field" />
+    </form>
+    <form name="reviews" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <textarea name="review"></textarea>
+      <input name="bot-field" />
+    </form>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

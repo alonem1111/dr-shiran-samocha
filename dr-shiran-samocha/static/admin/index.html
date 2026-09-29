@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ניהול תורים | Dr. Shiran Samocha</title>
+  <link rel="icon" href="/logo.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Heebo:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+  <div id="login-view" class="login">
+    <div class="login__card">
+      <img src="/logo.png" alt="" class="login__logo" />
+      <h1>מערכת ניהול תורים</h1>
+      <p>כניסה למיילים מורשים בלבד</p>
+      <label>
+        <span>אימייל</span>
+        <input type="email" id="login-email" autocomplete="username" />
+      </label>
+      <label>
+        <span>סיסמה</span>
+        <input type="password" id="login-password" autocomplete="current-password" />
+      </label>
+      <p class="error" id="login-error" hidden></p>
+      <button type="button" class="btn" id="login-btn">כניסה</button>
+    </div>
+  </div>
+
+  <div id="app-view" class="app" hidden>
+    <header class="app__header">
+      <div>
+        <h1>ניהול תורים</h1>
+        <p id="admin-email-label"></p>
+      </div>
+      <div class="app__header-actions">
+        <a href="/" class="link">לאתר</a>
+        <button type="button" class="btn btn-ghost" id="logout-btn">יציאה</button>
+      </div>
+    </header>
+
+    <nav class="tabs">
+      <button type="button" class="tabs__btn is-active" data-tab="pending">ממתינים לאישור</button>
+      <button type="button" class="tabs__btn" data-tab="all">כל התורים</button>
+      <button type="button" class="tabs__btn" data-tab="schedule">שעות פעילות</button>
+    </nav>
+
+    <section class="tab-panel is-active" data-panel="pending">
+      <div id="pending-list" class="list"></div>
+    </section>
+
+    <section class="tab-panel" data-panel="all" hidden>
+      <div id="all-list" class="list"></div>
+    </section>
+
+    <section class="tab-panel" data-panel="schedule" hidden>
+      <div class="card">
+        <h2>תבנית שבועית קבועה</h2>
+        <p class="muted">אם לא עדכנת חודש מסוים — השעות האלה נמשכות אוטומטית.</p>
+        <div id="weekly-editor" class="weekly"></div>
+        <button type="button" class="btn" id="save-weekly">שמירת תבנית שבועית</button>
+        <p class="ok" id="weekly-ok" hidden>נשמר</p>
+      </div>
+
+      <div class="card">
+        <h2>חריגות לחודש</h2>
+        <div class="month-nav">
+          <button type="button" id="admin-month-prev">›</button>
+          <strong id="admin-month-label"></strong>
+          <button type="button" id="admin-month-next">‹</button>
+        </div>
+        <p class="muted">סמני ימים סגורים, או הגדירי שעות שונות ליום ספציפי (ריק = לפי התבנית).</p>
+        <div id="month-editor" class="month-editor"></div>
+        <button type="button" class="btn" id="save-month">שמירת חריגות החודש</button>
+        <p class="ok" id="month-ok" hidden>נשמר</p>
+      </div>
+    </section>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

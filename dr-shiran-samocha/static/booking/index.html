@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>קביעת תור | Dr. Shiran Samocha</title>
+  <link rel="icon" href="/logo.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Heebo:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="booking.css" />
+</head>
+<body>
+  <div class="wizard">
+    <header class="wizard__top">
+      <a href="/" class="wizard__brand">
+        <img src="/logo.png" alt="Dr. Shiran Samocha" />
+      </a>
+      <nav class="steps" aria-label="שלבי קביעת תור">
+        <button type="button" class="steps__item is-active" data-step-btn="1">
+          <span class="steps__num">1</span>
+          <span class="steps__label">מי אני?</span>
+        </button>
+        <button type="button" class="steps__item" data-step-btn="2" disabled>
+          <span class="steps__num">2</span>
+          <span class="steps__label">בחירת שירות</span>
+        </button>
+        <button type="button" class="steps__item" data-step-btn="3" disabled>
+          <span class="steps__num">3</span>
+          <span class="steps__label">התאמת התור</span>
+        </button>
+      </nav>
+    </header>
+
+    <main class="wizard__main">
+      <!-- Step 1 -->
+      <section class="panel is-active" data-step="1">
+        <p class="panel__eyebrow">עוד לא הכרנו</p>
+        <h1 class="panel__title">בואו נכיר</h1>
+
+        <label class="field">
+          <span>שם מלא</span>
+          <input type="text" id="name" autocomplete="name" placeholder="השם שלך" maxlength="60" />
+        </label>
+
+        <div class="toggle" role="tablist" aria-label="סוג זיהוי">
+          <button type="button" class="toggle__btn is-active" data-identity="phone" role="tab" aria-selected="true">
+            זיהוי טלפוני <span class="toggle__hint">(מומלץ)</span>
+          </button>
+          <button type="button" class="toggle__btn" data-identity="email" role="tab" aria-selected="false">
+            זיהוי עם אימייל
+          </button>
+        </div>
+
+        <label class="field" id="phone-field">
+          <span>מספר נייד</span>
+          <div class="field__row">
+            <input type="tel" id="phone" inputmode="tel" autocomplete="tel" placeholder="050-0000000" maxlength="20" />
+          </div>
+        </label>
+
+        <label class="field" id="email-field" hidden>
+          <span>אימייל</span>
+          <input type="email" id="email" autocomplete="email" placeholder="name@example.com" maxlength="120" />
+        </label>
+
+        <p class="panel__error" id="step1-error" hidden></p>
+        <button type="button" class="btn btn-primary" id="to-step-2">המשך</button>
+      </section>
+
+      <!-- Step 2 -->
+      <section class="panel" data-step="2" hidden>
+        <p class="panel__eyebrow">מה מתאים לך</p>
+        <h1 class="panel__title">בחירת שירות</h1>
+        <p class="panel__sub">ייעוץ הוא משבצת של שעה. שאר הטיפולים — 30 דקות.</p>
+        <div class="services" id="services"></div>
+        <p class="panel__error" id="step2-error" hidden></p>
+        <div class="panel__nav">
+          <button type="button" class="btn btn-ghost" data-back="1">חזרה</button>
+        </div>
+      </section>
+
+      <!-- Step 3 -->
+      <section class="panel" data-step="3" hidden>
+        <p class="panel__eyebrow">מתי נוח לך</p>
+        <h1 class="panel__title">התאמת התור</h1>
+        <p class="panel__sub" id="selected-service-label"></p>
+
+        <div class="month-nav">
+          <button type="button" id="month-prev" aria-label="חודש קודם">›</button>
+          <strong id="month-label"></strong>
+          <button type="button" id="month-next" aria-label="חודש הבא">‹</button>
+        </div>
+
+        <div class="calendar" id="calendar"></div>
+
+        <div class="slots-wrap" id="slots-wrap" hidden>
+          <h2 class="slots__title">שעות פנויות · <span id="slots-date-label"></span></h2>
+          <p class="slots__note" id="slots-duration-note"></p>
+          <div class="slots" id="slots"></div>
+        </div>
+
+        <p class="panel__error" id="step3-error" hidden></p>
+        <div class="panel__nav">
+          <button type="button" class="btn btn-ghost" data-back="2">חזרה</button>
+          <button type="button" class="btn btn-primary" id="submit-booking" disabled>שליחת בקשת תור</button>
+        </div>
+      </section>
+
+      <!-- Done -->
+      <section class="panel" data-step="done" hidden>
+        <p class="panel__eyebrow">תודה</p>
+        <h1 class="panel__title">הבקשה ממתינה לאישור</h1>
+        <p class="panel__sub" id="done-summary"></p>
+        <p class="panel__sub">ד״ר שירן תאשר את המועד בהקדם. אם השארת אימייל — תקבלי עדכון לשם.</p>
+        <a class="btn btn-primary" href="/">חזרה לאתר</a>
+      </section>
+    </main>
+  </div>
+
+  <script src="booking.js"></script>
+</body>
+</html>
