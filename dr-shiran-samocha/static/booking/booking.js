@@ -223,26 +223,36 @@ function validateStep1() {
   return ''
 }
 
-document.querySelectorAll('[data-identity]').forEach((btn) => {
-  btn.addEventListener('click', () => {
-    state.identity = btn.dataset.identity
-    document.querySelectorAll('[data-identity]').forEach((b) => {
-      const on = b === btn
-      b.classList.toggle('is-active', on)
-      b.setAttribute('aria-selected', on ? 'true' : 'false')
-    })
-    $('#phone-field').hidden = state.identity !== 'phone'
-    $('#email-field').hidden = state.identity !== 'email'
-    showError('#step1-error', '')
+function setIdentity(identity) {
+  state.identity = identity === 'email' ? 'email' : 'phone'
+  document.querySelectorAll('[data-identity]').forEach((b) => {
+    const on = b.dataset.identity === state.identity
+    b.classList.toggle('is-active', on)
+    b.setAttribute('aria-selected', on ? 'true' : 'false')
   })
+  $('#phone-field').classList.toggle('is-hidden', state.identity !== 'phone')
+  $('#email-field').classList.toggle('is-hidden', state.identity !== 'email')
+  // Keep only the active channel filled
+  if (state.identity === 'phone') {
+    $('#email').value = ''
+    state.email = ''
+  } else {
+    $('#phone').value = ''
+    state.phone = ''
+  }
+  showError('#step1-error', '')
+}
+
+document.querySelectorAll('[data-identity]').forEach((btn) => {
+  btn.addEventListener('click', () => setIdentity(btn.dataset.identity))
 })
 
 $('#to-step-2').addEventListener('click', async () => {
   const err = validateStep1()
   if (err) return showError('#step1-error', err)
   state.name = $('#name').value.trim()
-  state.phone = $('#phone').value.trim()
-  state.email = $('#email').value.trim()
+  state.phone = state.identity === 'phone' ? $('#phone').value.trim() : ''
+  state.email = state.identity === 'email' ? $('#email').value.trim() : ''
   showError('#step1-error', '')
   goStep(2)
   if (!state.services.length) {
@@ -280,8 +290,8 @@ $('#submit-booking').addEventListener('click', async () => {
       body: JSON.stringify({
         name: state.name,
         identity: state.identity,
-        phone: state.phone,
-        email: state.email,
+        phone: state.identity === 'phone' ? state.phone : '',
+        email: state.identity === 'email' ? state.email : '',
         serviceId: state.service.id,
         date: state.selectedDate,
         start: state.selectedStart,
@@ -300,4 +310,5 @@ $('#submit-booking').addEventListener('click', async () => {
   }
 })
 
+setIdentity('phone')
 goStep(1)

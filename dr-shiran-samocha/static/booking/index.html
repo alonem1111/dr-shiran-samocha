@@ -43,6 +43,7 @@
           <input type="text" id="name" autocomplete="name" placeholder="השם שלך" maxlength="60" />
         </label>
 
+        <p class="panel__hint">בחרו דרך אחת לזיהוי — טלפון או אימייל</p>
         <div class="toggle" role="tablist" aria-label="סוג זיהוי">
           <button type="button" class="toggle__btn is-active" data-identity="phone" role="tab" aria-selected="true">
             זיהוי טלפוני <span class="toggle__hint">(מומלץ)</span>
@@ -52,14 +53,14 @@
           </button>
         </div>
 
-        <label class="field" id="phone-field">
+        <label class="field identity-field" id="phone-field">
           <span>מספר נייד</span>
           <div class="field__row">
             <input type="tel" id="phone" inputmode="tel" autocomplete="tel" placeholder="050-0000000" maxlength="20" />
           </div>
         </label>
 
-        <label class="field" id="email-field" hidden>
+        <label class="field identity-field is-hidden" id="email-field">
           <span>אימייל</span>
           <input type="email" id="email" autocomplete="email" placeholder="name@example.com" maxlength="120" />
         </label>
