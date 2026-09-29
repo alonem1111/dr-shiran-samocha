@@ -83,14 +83,19 @@ $('#login-btn').addEventListener('click', async () => {
         password: $('#login-password').value,
       }),
     })
-    const data = await res.json()
+    const data = await res.json().catch(() => ({}))
     if (!res.ok) throw new Error(data.error || 'התחברות נכשלה')
     token = data.token
     email = data.email
     localStorage.setItem(TOKEN_KEY, token)
     localStorage.setItem(EMAIL_KEY, email)
     showApp()
-    await refreshAll()
+    try {
+      await refreshAll()
+    } catch (loadErr) {
+      logout(true)
+      throw new Error(loadErr.message || 'ההתחברות הצליחה אבל טעינת הנתונים נכשלה')
+    }
   } catch (e) {
     err.hidden = false
     err.textContent = e.message
