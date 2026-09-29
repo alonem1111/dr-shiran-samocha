@@ -34,6 +34,21 @@ function timingSafeEqual(a, b) {
   return out === 0
 }
 
+function toB64Url(str) {
+  const bytes = encoder.encode(str)
+  let bin = ''
+  for (const b of bytes) bin += String.fromCharCode(b)
+  return btoa(bin).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/g, '')
+}
+
+function fromB64Url(str) {
+  const pad = '='.repeat((4 - (str.length % 4)) % 4)
+  const b64 = (str + pad).replace(/-/g, '+').replace(/_/g, '/')
+  const bin = atob(b64)
+  const bytes = Uint8Array.from(bin, (c) => c.charCodeAt(0))
+  return new TextDecoder().decode(bytes)
+}
+
 export function isAllowedAdminEmail(email) {
   if (!email) return false
   return adminEmails().includes(String(email).trim().toLowerCase())
@@ -49,22 +64,35 @@ export async function createSessionToken(email) {
   const secret = sessionSecret()
   if (!secret) throw new Error('ADMIN_PASSWORD missing')
   const exp = Date.now() + 1000 * 60 * 60 * 24 * 14 // 14 days
-  const payload = `${email.toLowerCase()}.${exp}`
-  const sig = await hmac(payload, secret)
-  return `${payload}.${sig}`
+  // Encode email as base64url so dots in gmail.com cannot break the token
+  const body = toB64Url(JSON.stringify({ e: email.toLowerCase(), exp }))
+  const sig = await hmac(body, secret)
+  return `${body}.${sig}`
 }
 
 export async function verifySessionToken(token) {
   if (!token || typeof token !== 'string') return null
-  const parts = token.split('.')
-  if (parts.length !== 3) return null
-  const [email, expStr, sig] = parts
+  const dot = token.lastIndexOf('.')
+  if (dot <= 0) return null
+  const body = token.slice(0, dot)
+  const sig = token.slice(dot + 1)
+  if (!body || !sig) return null
+
   const secret = sessionSecret()
   if (!secret) return null
-  const expected = await hmac(`${email}.${expStr}`, secret)
+  const expected = await hmac(body, secret)
   if (!timingSafeEqual(sig, expected)) return null
+
+  let payload
+  try {
+    payload = JSON.parse(fromB64Url(body))
+  } catch {
+    return null
+  }
+
+  const email = String(payload?.e || '').toLowerCase()
   if (!isAllowedAdminEmail(email)) return null
-  if (Number(expStr) < Date.now()) return null
+  if (Number(payload?.exp) < Date.now()) return null
   return email
 }
 
