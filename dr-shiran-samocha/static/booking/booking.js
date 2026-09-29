@@ -207,14 +207,19 @@ function formatDateHe(date) {
   return `${d}.${m}.${y}`
 }
 
+function isValidMobileInput(raw) {
+  const digits = String(raw || '').replace(/\D/g, '')
+  if (digits.startsWith('05') && digits.length === 10) return true
+  if (digits.startsWith('9725') && digits.length === 12) return true
+  return false
+}
+
 function validateStep1() {
   const name = $('#name').value.trim()
   if (name.length < 2) return 'נא להזין שם מלא'
   if (state.identity === 'phone') {
-    const phone = $('#phone').value.trim()
-    const digits = phone.replace(/\D/g, '')
-    if (!(digits.length === 10 && digits.startsWith('05')) && !(digits.length === 12 && digits.startsWith('9725'))) {
-      return 'נא להזין מספר נייד תקין'
+    if (!isValidMobileInput($('#phone').value)) {
+      return 'נא להזין נייד תקין (למשל 050-0000000 או +97250-0000000)'
     }
   } else {
     const email = $('#email').value.trim()
