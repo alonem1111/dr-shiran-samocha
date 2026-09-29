@@ -6,13 +6,20 @@ import { randomToken } from './_shared/auth.mjs'
 import { emailBookingReceivedToCustomer, emailNewBookingToClinic } from './_shared/email.mjs'
 
 function normalizePhone(raw) {
-  const digits = String(raw || '').replace(/\D/g, '')
+  let s = String(raw || '').trim()
+  if (!s) return ''
+  // Allow +972 / 972 / 05x and spaces/dashes
+  s = s.replace(/[\s\-().]/g, '')
+  if (s.startsWith('00')) s = `+${s.slice(2)}`
+  const digits = s.replace(/\D/g, '')
   if (!digits) return ''
   if (digits.startsWith('972')) return `+${digits}`
-  if (digits.startsWith('0') && digits.length === 10) return `+972${digits.slice(1)}`
+  if (digits.startsWith('0') && digits.length >= 9) return `+972${digits.slice(1)}`
+  if (s.startsWith('+')) return `+${digits}`
   return `+${digits}`
 }
 
+/** Israeli mobile: +9725XXXXXXXX (9 digits after country code starting with 5) */
 function isValidIlMobile(phone) {
   return /^\+9725\d{8}$/.test(phone)
 }
