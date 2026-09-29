@@ -3,17 +3,9 @@
   publish = "static"
   command = "npm install"
 
+[build.environment]
+  NODE_VERSION = "20"
+
 [functions]
   directory = "netlify/functions"
   node_bundler = "esbuild"
-  node_version = "20"
-
-[[redirects]]
-  from = "/booking"
-  to = "/booking/"
-  status = 301
-
-[[redirects]]
-  from = "/admin"
-  to = "/admin/"
-  status = 301
