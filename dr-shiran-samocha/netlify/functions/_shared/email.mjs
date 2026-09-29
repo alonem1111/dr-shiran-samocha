@@ -2,29 +2,43 @@ function siteUrl() {
   return (process.env.URL || process.env.SITE_URL || 'https://www.dr-shirans-esthetics.com').replace(/\/$/, '')
 }
 
+function notifyList() {
+  const raw = process.env.NOTIFY_EMAIL || 'shiran8198@gmail.com'
+  return raw
+    .split(',')
+    .map((e) => e.trim().toLowerCase())
+    .filter(Boolean)
+}
+
 export async function sendEmail({ to, subject, html, text }) {
   const apiKey = process.env.RESEND_API_KEY
   const from = process.env.EMAIL_FROM || 'Dr. Shiran Samocha <onboarding@resend.dev>'
+  const recipients = (Array.isArray(to) ? to : [to]).map((e) => String(e).trim()).filter(Boolean)
 
   if (!apiKey) {
-    console.error('RESEND_API_KEY missing — email skipped:', subject, '→', to)
+    console.error('RESEND_API_KEY missing — email skipped:', subject, '→', recipients.join(', '))
     return { ok: false, skipped: true }
   }
 
-  const response = await fetch('https://api.resend.com/emails', {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ from, to: [to], subject, html, text }),
-  })
+  const results = await Promise.allSettled(
+    recipients.map(async (address) => {
+      const response = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ from, to: [address], subject, html, text }),
+      })
+      if (!response.ok) {
+        console.error('Resend error', address, response.status, await response.text())
+        throw new Error(`Resend failed for ${address}`)
+      }
+    }),
+  )
 
-  if (!response.ok) {
-    console.error('Resend error', response.status, await response.text())
-    return { ok: false }
-  }
-  return { ok: true }
+  const ok = results.some((r) => r.status === 'fulfilled')
+  return { ok }
 }
 
 function wrap(body) {
@@ -39,7 +53,7 @@ function wrap(body) {
 }
 
 export async function emailNewBookingToClinic(booking) {
-  const notify = process.env.NOTIFY_EMAIL || 'shiran8198@gmail.com'
+  const notify = notifyList()
   const base = siteUrl()
   const approveUrl = `${base}/.netlify/functions/booking-decide?token=${encodeURIComponent(booking.decideToken)}&action=approve`
   const rejectUrl = `${base}/.netlify/functions/booking-decide?token=${encodeURIComponent(booking.decideToken)}&action=reject`
