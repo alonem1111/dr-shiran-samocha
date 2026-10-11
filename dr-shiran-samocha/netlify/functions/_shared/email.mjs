@@ -3,7 +3,7 @@ function siteUrl() {
 }
 
 function notifyList() {
-  const raw = process.env.NOTIFY_EMAIL || 'shiran8198@gmail.com'
+  const raw = process.env.NOTIFY_EMAIL || 'drshiransamocha@gmail.com'
   return raw
     .split(',')
     .map((e) => e.trim().toLowerCase())
