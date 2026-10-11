@@ -309,13 +309,15 @@ button {
 
 .about__image-wrap {
   position: relative;
+  max-width: 420px;
+  margin-inline: auto;
 }
 
 .about__image {
-  border-radius: var(--radius);
   width: 100%;
   height: auto;
   display: block;
+  border-radius: 50%;
   object-fit: cover;
   box-shadow: var(--shadow-lg);
 }
