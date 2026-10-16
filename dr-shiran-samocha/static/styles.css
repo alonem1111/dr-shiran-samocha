@@ -89,6 +89,19 @@ button {
   margin-bottom: 3rem;
 }
 
+.treatments__subtitle {
+  max-width: none;
+  white-space: nowrap;
+  margin-inline: auto;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .treatments__subtitle {
+    white-space: normal;
+  }
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
