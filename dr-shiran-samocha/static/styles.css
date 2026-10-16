@@ -92,8 +92,8 @@ button {
 .treatments__subtitle {
   max-width: none;
   white-space: nowrap;
-  margin-inline: auto;
-  text-align: center;
+  text-align: right;
+  margin-inline: 0;
 }
 
 @media (max-width: 900px) {
