@@ -242,10 +242,11 @@ button {
 /* Hero */
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 50vh;
   display: flex;
   align-items: center;
   padding-top: 5rem;
+  padding-bottom: 1.5rem;
   overflow: hidden;
 }
 
@@ -272,20 +273,20 @@ button {
 
 .hero__content {
   text-align: center;
-  padding-block: 4rem;
+  padding-block: 1.5rem 2rem;
 }
 
 .hero__logo {
-  width: min(220px, 52vw);
+  width: min(160px, 42vw);
   margin-inline: auto;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.85rem;
   filter: drop-shadow(0 8px 24px rgba(61, 53, 48, 0.1));
 }
 
 .hero__tagline-he {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   color: var(--text-muted);
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .hero__actions {
