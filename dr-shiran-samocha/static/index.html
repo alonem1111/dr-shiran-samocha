@@ -26,7 +26,6 @@
       <nav class="header__nav" id="nav">
         <a href="#about">עליי</a>
         <a href="#treatments">טיפולים</a>
-        <a href="#results">לפני ואחרי</a>
         <a href="#reviews">ביקורות</a>
         <a href="#faq">שאלות נפוצות</a>
         <a href="#contact">צור קשר</a>
@@ -68,17 +67,10 @@
         <p class="section-label">מה מחכה לך</p>
         <h2 class="section-title">הטיפולים שיהפכו אותי ליפה יותר</h2>
         <p class="section-subtitle treatments__subtitle">לחצי על טיפול כדי להבין למי הוא מתאים, באילו אזורים, איך תרגישי בסוף, ומה לגבי כאבים והחלמה</p>
+        <div class="treatments-media" id="treatments-media" hidden>
+          <div class="treatments-media__track" id="treatments-media-track"></div>
+        </div>
         <div class="treatments__grid" id="treatments-grid"></div>
-      </div>
-    </section>
-
-    <section id="results" class="section results">
-      <div class="container">
-        <p class="section-label">תוצאות אמיתיות</p>
-        <h2 class="section-title">לפני ואחרי</h2>
-        <p class="section-subtitle">תוצאות טבעיות ועדינות — כל טיפול מותאם אישית לפי צרכי המטופל</p>
-        <div class="results__grid" id="results-grid"></div>
-        <p class="results__note">* התוצאות עשויות להשתנות בין מטופל למטופל. התמונות מוצגות בהסכמת המטופלים.</p>
       </div>
     </section>
 
@@ -220,14 +212,6 @@
       <button class="treatment-modal__close" id="treatment-modal-close" aria-label="סגור">×</button>
       <div id="treatment-modal-body"></div>
     </div>
-  </div>
-
-  <div class="lightbox" id="lightbox" hidden>
-    <button class="lightbox__close" id="lightbox-close" aria-label="סגור">×</button>
-    <button class="lightbox__nav lightbox__nav--prev" id="lightbox-prev" aria-label="הקודם">‹</button>
-    <img class="lightbox__img" id="lightbox-img" alt="" />
-    <button class="lightbox__nav lightbox__nav--next" id="lightbox-next" aria-label="הבא">›</button>
-    <p class="lightbox__caption" id="lightbox-caption"></p>
   </div>
 
   <script src="script.js"></script>

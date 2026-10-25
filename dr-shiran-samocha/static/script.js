@@ -1,9 +1,26 @@
-const beforeAfter = [
-  { image: 'images/before-after/forehead-lines.png', tag: 'בוטוקס', title: 'החלקת קמטי מצח' },
-  { image: 'images/before-after/forehead-frown.png', tag: 'בוטוקס', title: 'החלקת קמטי הבעה' },
-  { image: 'images/before-after/lower-face.png', tag: 'עיצוב שפתיים', title: 'עיצוב שפתיים' },
-  { image: 'images/before-after/jawline.png', tag: 'פיסול פנים עדין', title: 'חידוד קו לסת וסנטר' },
-  { image: 'images/before-after/profile.png', tag: 'פיסול אף', title: 'פיסול אף' },
+const treatmentMedia = [
+  { type: 'image', src: 'images/treatments-media/botox-01.jpg', alt: 'בוטוקס לפני ואחרי' },
+  { type: 'image', src: 'images/treatments-media/lips-07.jpg', alt: 'עיצוב שפתיים לפני ואחרי' },
+  { type: 'image', src: 'images/treatments-media/jawline-01.jpg', alt: 'קו לסת לפני ואחרי' },
+  { type: 'image', src: 'images/treatments-media/nose-01.jpg', alt: 'פיסול אף לפני ואחרי' },
+  { type: 'image', src: 'images/treatments-media/botox-02.jpg', alt: 'בוטוקס לפני ואחרי' },
+  { type: 'image', src: 'images/treatments-media/lips-01.jpg', alt: 'עיצוב שפתיים לפני ואחרי' },
+  { type: 'video', src: 'images/treatments-media/botox-video.mp4', alt: 'סרטון בוטוקס' },
+  { type: 'image', src: 'images/treatments-media/lips-05.jpg', alt: 'עיצוב שפתיים לפני ואחרי' },
+  { type: 'image', src: 'images/treatments-media/botox-03.jpg', alt: 'בוטוקס לפני ואחרי' },
+  { type: 'image', src: 'images/treatments-media/lips-02.jpg', alt: 'עיצוב שפתיים לפני ואחרי' },
+  { type: 'image', src: 'images/treatments-media/botox-04.jpg', alt: 'בוטוקס לפני ואחרי' },
+  { type: 'video', src: 'images/treatments-media/lips-video.mp4', alt: 'סרטון עיצוב שפתיים' },
+  { type: 'image', src: 'images/treatments-media/lips-06.jpg', alt: 'עיצוב שפתיים לפני ואחרי' },
+  { type: 'image', src: 'images/treatments-media/jawline-02.jpg', alt: 'קו לסת לפני ואחרי' },
+  { type: 'image', src: 'images/treatments-media/botox-05.jpg', alt: 'בוטוקס לפני ואחרי' },
+  { type: 'image', src: 'images/treatments-media/lips-03.jpg', alt: 'עיצוב שפתיים לפני ואחרי' },
+  { type: 'image', src: 'images/treatments-media/botox-06.jpg', alt: 'בוטוקס לפני ואחרי' },
+  { type: 'image', src: 'images/treatments-media/lips-04.jpg', alt: 'עיצוב שפתיים לפני ואחרי' },
+  { type: 'image', src: 'images/treatments-media/botox-07.jpg', alt: 'בוטוקס לפני ואחרי' },
+  { type: 'image', src: 'images/treatments-media/botox-08.jpg', alt: 'בוטוקס לפני ואחרי' },
+  { type: 'image', src: 'images/treatments-media/botox-09.jpg', alt: 'בוטוקס לפני ואחרי' },
+  { type: 'image', src: 'images/treatments-media/botox-10.jpg', alt: 'בוטוקס לפני ואחרי' },
 ]
 
 const treatments = [
@@ -20,7 +37,7 @@ const treatments = [
   {
     title: 'בוטוקס',
     description: 'מרכך קמטי הבעה ומרענן את הפנים, בלי להקפיא את ההבעה ובלי לשנות מי שאת.',
-    image: 'https://placehold.co/600x400/E8DFD4/8B7355?text=' + encodeURIComponent('בוטוקס'),
+    image: 'images/treatments-media/botox-03.jpg',
     suitable: 'אם את רואה קמטים במצח, בין הגבות או סביב העיניים, או מרגישה שהפנים נראות עייפות או מתוחות יותר ממה שאת מרגישה מבפנים.',
     areas: `
       <p><strong>שליש עליון:</strong> מצח, בין הגבות, רגלי עורב סביב העיניים, וגם קמטוטי אף (באני ליינס).</p>
@@ -34,7 +51,7 @@ const treatments = [
   {
     title: 'עיצוב שפתיים',
     description: 'הדגשה עדינה של השפתיים, עם שמירה על פרופורציות טבעיות שמתאימות לפנים שלך.',
-    image: 'https://placehold.co/600x400/E8DFD4/8B7355?text=' + encodeURIComponent('עיצוב שפתיים'),
+    image: 'images/treatments-media/lips-07.jpg',
     suitable: 'אם את רוצה שפתיים מודגשות בעדינות, לתקן אסימטריה, או להחזיר נפח שנעלם, בלי מראה מוגזם.',
     areas: 'שפה עליונה ותחתונה, קו המתאר, ולפעמים גם האזור מעל השפה לפי מבנה הפנים.',
     feelAfter: 'שפתיים רכות ומלאות יותר, שמשתלבות עם הפנים. הרבה נשים מרגישות בטוחות יותר בחיוך ובתמונות.',
@@ -44,7 +61,7 @@ const treatments = [
   {
     title: 'פיסול אף',
     description: 'שיפור עדין של פרופיל האף בלי ניתוח. אפשר ליישר גבנון קטן, לרכך קצה או לאזן אסימטריה.',
-    image: 'https://placehold.co/600x400/E8DFD4/8B7355?text=' + encodeURIComponent('פיסול אף'),
+    image: 'images/treatments-media/nose-01.jpg',
     suitable: 'אם משהו קטן בפרופיל מפריע לך, ואת רוצה שיפור בלי ניתוח ובלי שבוע של החלמה.',
     areas: 'גשר האף, קצה האף, ולפעמים נקודות נוספות שעוזרות לפרופיל להיראות מאוזן יותר.',
     feelAfter: 'הפרופיל נראה חלק יותר. הרבה פעמים פתאום פחות חושבות על האף, כי הוא פשוט משתלב יפה.',
@@ -54,7 +71,7 @@ const treatments = [
   {
     title: 'פיסול פנים עדין',
     description: 'חידוד עדין של לחיים, קו לסת וסנטר, כדי שהפנים ייראו מוגדרות יותר ועדיין טבעיות.',
-    image: 'https://placehold.co/600x400/E8DFD4/8B7355?text=' + encodeURIComponent('פיסול פנים'),
+    image: 'images/treatments-media/jawline-01.jpg',
     suitable: 'אם מרגיש לך שהפנים איבדו הגדרה, שהלחיים שקעו, או שאת רוצה קו לסת וסנטר ברורים יותר.',
     areas: 'לחיים, קו לסת, סנטר ולפעמים גם רקות, לפי מבנה הפנים שלך.',
     feelAfter: 'הפנים נראות מוגדרות ובריאות יותר. לא שינוי דרמטי, פשוט גרסה יותר חדה ומטופחת של עצמך.',
@@ -109,17 +126,20 @@ const FALLBACK_REVIEWS = [
   },
 ]
 
-document.getElementById('results-grid').innerHTML = beforeAfter.map((item, i) => `
-  <article class="result-card" data-index="${i}" tabindex="0" role="button" aria-label="${item.title}">
-    <div class="result-card__image-wrap">
-      <img src="${item.image}" alt="${item.title} — לפני ואחרי" loading="lazy" />
-    </div>
-    <div class="result-card__body">
-      <span class="result-card__tag">${item.tag}</span>
-      <h3 class="result-card__title">${item.title}</h3>
-    </div>
-  </article>
-`).join('')
+function mediaItemHtml(item) {
+  if (item.type === 'video') {
+    return `<video src="${item.src}" muted loop playsinline autoplay preload="metadata" aria-label="${item.alt || 'סרטון טיפול'}"></video>`
+  }
+  return `<img src="${item.src}" alt="${item.alt || 'תוצאת טיפול'}" loading="lazy" />`
+}
+
+const treatmentsMediaEl = document.getElementById('treatments-media')
+const treatmentsMediaTrack = document.getElementById('treatments-media-track')
+if (treatmentMedia.length && treatmentsMediaEl && treatmentsMediaTrack) {
+  const slides = treatmentMedia.map((item) => `<figure class="treatments-media__item">${mediaItemHtml(item)}</figure>`).join('')
+  treatmentsMediaTrack.innerHTML = slides + slides
+  treatmentsMediaEl.hidden = false
+}
 
 document.getElementById('treatments-grid').innerHTML = treatments.map((t, i) => `
   <article class="treatment-card" data-index="${i}" tabindex="0" role="button" aria-label="פרטים על ${t.title}">
@@ -234,54 +254,8 @@ nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   nav.classList.remove('header__nav--open')
 }))
 
-// lightbox
-const lightbox = document.getElementById('lightbox')
-const lightboxImg = document.getElementById('lightbox-img')
-const lightboxCaption = document.getElementById('lightbox-caption')
-let lightboxIndex = 0
-
-function openLightbox(index) {
-  lightboxIndex = index
-  const item = beforeAfter[index]
-  lightboxImg.src = item.image
-  lightboxImg.alt = item.title
-  lightboxCaption.textContent = `${item.tag} · ${item.title}`
-  lightbox.hidden = false
-  document.body.style.overflow = 'hidden'
-}
-
-function closeLightbox() {
-  lightbox.hidden = true
-  document.body.style.overflow = ''
-}
-
-function navigateLightbox(dir) {
-  lightboxIndex = (lightboxIndex + dir + beforeAfter.length) % beforeAfter.length
-  openLightbox(lightboxIndex)
-}
-
-document.querySelectorAll('.result-card').forEach(card => {
-  card.addEventListener('click', () => openLightbox(Number(card.dataset.index)))
-  card.addEventListener('keydown', e => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault()
-      openLightbox(Number(card.dataset.index))
-    }
-  })
-})
-
-document.getElementById('lightbox-close').addEventListener('click', closeLightbox)
-document.getElementById('lightbox-prev').addEventListener('click', () => navigateLightbox(1))
-document.getElementById('lightbox-next').addEventListener('click', () => navigateLightbox(-1))
-lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox() })
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') {
-    if (!treatmentModal?.hidden) closeTreatmentModal()
-    if (!lightbox.hidden) closeLightbox()
-  }
-  if (lightbox.hidden) return
-  if (e.key === 'ArrowRight') navigateLightbox(1)
-  if (e.key === 'ArrowLeft') navigateLightbox(-1)
+  if (e.key === 'Escape' && !treatmentModal?.hidden) closeTreatmentModal()
 })
 
 // Reviews — loaded from server so everyone sees them
