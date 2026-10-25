@@ -1,33 +1,10 @@
-const treatmentMedia = [
-  { type: 'image', src: 'images/treatments-media/botox-01.jpg', alt: 'בוטוקס לפני ואחרי' },
-  { type: 'image', src: 'images/treatments-media/lips-07.jpg', alt: 'עיצוב שפתיים לפני ואחרי' },
-  { type: 'image', src: 'images/treatments-media/jawline-01.jpg', alt: 'קו לסת לפני ואחרי' },
-  { type: 'image', src: 'images/treatments-media/nose-01.jpg', alt: 'פיסול אף לפני ואחרי' },
-  { type: 'image', src: 'images/treatments-media/botox-02.jpg', alt: 'בוטוקס לפני ואחרי' },
-  { type: 'image', src: 'images/treatments-media/lips-01.jpg', alt: 'עיצוב שפתיים לפני ואחרי' },
-  { type: 'video', src: 'images/treatments-media/botox-video.mp4', alt: 'סרטון בוטוקס' },
-  { type: 'image', src: 'images/treatments-media/lips-05.jpg', alt: 'עיצוב שפתיים לפני ואחרי' },
-  { type: 'image', src: 'images/treatments-media/botox-03.jpg', alt: 'בוטוקס לפני ואחרי' },
-  { type: 'image', src: 'images/treatments-media/lips-02.jpg', alt: 'עיצוב שפתיים לפני ואחרי' },
-  { type: 'image', src: 'images/treatments-media/botox-04.jpg', alt: 'בוטוקס לפני ואחרי' },
-  { type: 'video', src: 'images/treatments-media/lips-video.mp4', alt: 'סרטון עיצוב שפתיים' },
-  { type: 'image', src: 'images/treatments-media/lips-06.jpg', alt: 'עיצוב שפתיים לפני ואחרי' },
-  { type: 'image', src: 'images/treatments-media/jawline-02.jpg', alt: 'קו לסת לפני ואחרי' },
-  { type: 'image', src: 'images/treatments-media/botox-05.jpg', alt: 'בוטוקס לפני ואחרי' },
-  { type: 'image', src: 'images/treatments-media/lips-03.jpg', alt: 'עיצוב שפתיים לפני ואחרי' },
-  { type: 'image', src: 'images/treatments-media/botox-06.jpg', alt: 'בוטוקס לפני ואחרי' },
-  { type: 'image', src: 'images/treatments-media/lips-04.jpg', alt: 'עיצוב שפתיים לפני ואחרי' },
-  { type: 'image', src: 'images/treatments-media/botox-07.jpg', alt: 'בוטוקס לפני ואחרי' },
-  { type: 'image', src: 'images/treatments-media/botox-08.jpg', alt: 'בוטוקס לפני ואחרי' },
-  { type: 'image', src: 'images/treatments-media/botox-09.jpg', alt: 'בוטוקס לפני ואחרי' },
-  { type: 'image', src: 'images/treatments-media/botox-10.jpg', alt: 'בוטוקס לפני ואחרי' },
-]
-
 const treatments = [
   {
     title: 'איכות העור',
     description: 'טיפולים שמחזירים לעור לחות, מרקם נעים וזוהר. מזותרפיה, ויטמינים ופפטידים, לפי מה שהעור שלך באמת צריך.',
-    image: 'https://placehold.co/600x400/E8DFD4/8B7355?text=' + encodeURIComponent('איכות העור'),
+    media: [
+      { type: 'image', src: 'images/treatments-media/skin-01.jpg' },
+    ],
     suitable: 'אם העור מרגיש עייף, יבש או בלי זוהר, ואת רוצה להיראות רעננה בלי לשנות את הפנים.',
     areas: 'פנים, צוואר ולפעמים גם מחשוף, לפי מה שמתאים לך.',
     feelAfter: 'העור נעים יותר למגע, עם זוהר עדין. לא דרמה ביום אחד, אלא שיפור שמרגיש טבעי.',
@@ -37,7 +14,19 @@ const treatments = [
   {
     title: 'בוטוקס',
     description: 'מרכך קמטי הבעה ומרענן את הפנים, בלי להקפיא את ההבעה ובלי לשנות מי שאת.',
-    image: 'images/treatments-media/botox-03.jpg',
+    media: [
+      { type: 'image', src: 'images/treatments-media/botox-01.jpg' },
+      { type: 'image', src: 'images/treatments-media/botox-02.jpg' },
+      { type: 'image', src: 'images/treatments-media/botox-03.jpg' },
+      { type: 'video', src: 'images/treatments-media/botox-video.mp4' },
+      { type: 'image', src: 'images/treatments-media/botox-04.jpg' },
+      { type: 'image', src: 'images/treatments-media/botox-05.jpg' },
+      { type: 'image', src: 'images/treatments-media/botox-06.jpg' },
+      { type: 'image', src: 'images/treatments-media/botox-07.jpg' },
+      { type: 'image', src: 'images/treatments-media/botox-08.jpg' },
+      { type: 'image', src: 'images/treatments-media/botox-09.jpg' },
+      { type: 'image', src: 'images/treatments-media/botox-10.jpg' },
+    ],
     suitable: 'אם את רואה קמטים במצח, בין הגבות או סביב העיניים, או מרגישה שהפנים נראות עייפות או מתוחות יותר ממה שאת מרגישה מבפנים.',
     areas: `
       <p><strong>שליש עליון:</strong> מצח, בין הגבות, רגלי עורב סביב העיניים, וגם קמטוטי אף (באני ליינס).</p>
@@ -51,7 +40,16 @@ const treatments = [
   {
     title: 'עיצוב שפתיים',
     description: 'הדגשה עדינה של השפתיים, עם שמירה על פרופורציות טבעיות שמתאימות לפנים שלך.',
-    image: 'images/treatments-media/lips-07.jpg',
+    media: [
+      { type: 'image', src: 'images/treatments-media/lips-07.jpg' },
+      { type: 'image', src: 'images/treatments-media/lips-01.jpg' },
+      { type: 'image', src: 'images/treatments-media/lips-05.jpg' },
+      { type: 'video', src: 'images/treatments-media/lips-video.mp4' },
+      { type: 'image', src: 'images/treatments-media/lips-02.jpg' },
+      { type: 'image', src: 'images/treatments-media/lips-06.jpg' },
+      { type: 'image', src: 'images/treatments-media/lips-03.jpg' },
+      { type: 'image', src: 'images/treatments-media/lips-04.jpg' },
+    ],
     suitable: 'אם את רוצה שפתיים מודגשות בעדינות, לתקן אסימטריה, או להחזיר נפח שנעלם, בלי מראה מוגזם.',
     areas: 'שפה עליונה ותחתונה, קו המתאר, ולפעמים גם האזור מעל השפה לפי מבנה הפנים.',
     feelAfter: 'שפתיים רכות ומלאות יותר, שמשתלבות עם הפנים. הרבה נשים מרגישות בטוחות יותר בחיוך ובתמונות.',
@@ -61,7 +59,9 @@ const treatments = [
   {
     title: 'פיסול אף',
     description: 'שיפור עדין של פרופיל האף בלי ניתוח. אפשר ליישר גבנון קטן, לרכך קצה או לאזן אסימטריה.',
-    image: 'images/treatments-media/nose-01.jpg',
+    media: [
+      { type: 'image', src: 'images/treatments-media/nose-01.jpg' },
+    ],
     suitable: 'אם משהו קטן בפרופיל מפריע לך, ואת רוצה שיפור בלי ניתוח ובלי שבוע של החלמה.',
     areas: 'גשר האף, קצה האף, ולפעמים נקודות נוספות שעוזרות לפרופיל להיראות מאוזן יותר.',
     feelAfter: 'הפרופיל נראה חלק יותר. הרבה פעמים פתאום פחות חושבות על האף, כי הוא פשוט משתלב יפה.',
@@ -71,7 +71,10 @@ const treatments = [
   {
     title: 'פיסול פנים עדין',
     description: 'חידוד עדין של לחיים, קו לסת וסנטר, כדי שהפנים ייראו מוגדרות יותר ועדיין טבעיות.',
-    image: 'images/treatments-media/jawline-01.jpg',
+    media: [
+      { type: 'image', src: 'images/treatments-media/jawline-01.jpg' },
+      { type: 'image', src: 'images/treatments-media/jawline-02.jpg' },
+    ],
     suitable: 'אם מרגיש לך שהפנים איבדו הגדרה, שהלחיים שקעו, או שאת רוצה קו לסת וסנטר ברורים יותר.',
     areas: 'לחיים, קו לסת, סנטר ולפעמים גם רקות, לפי מבנה הפנים שלך.',
     feelAfter: 'הפנים נראות מוגדרות ובריאות יותר. לא שינוי דרמטי, פשוט גרסה יותר חדה ומטופחת של עצמך.',
@@ -81,7 +84,9 @@ const treatments = [
   {
     title: 'ביוסטימולטורים',
     description: 'טיפול שמעודד את העור לייצר קולגן בעצמו, מחזיר נפח ומשפר איכות עור לאורך זמן.',
-    image: 'https://placehold.co/600x400/E8DFD4/8B7355?text=' + encodeURIComponent('ביוסטימולטורים'),
+    media: [
+      { type: 'image', src: 'https://placehold.co/600x400/E8DFD4/8B7355?text=' + encodeURIComponent('ביוסטימולטורים') },
+    ],
     suitable: 'אם את רוצה מראה רענן יותר, עם שיפור הדרגתי בנפח ובאיכות העור, ולא רק מילוי נקודתי.',
     areas: 'לחיים, אזורים שאיבדו נפח, וקווי פנים שצריכים תמיכה עדינה, לפי התאמה אישית.',
     feelAfter: 'עם הזמן העור מרגיש עבה ואיכותי יותר, והפנים נראות רעננות בלי מראה עשוי.',
@@ -126,31 +131,94 @@ const FALLBACK_REVIEWS = [
   },
 ]
 
-function mediaItemHtml(item) {
+const HERO_PHOTOS = Array.from({ length: 14 }, (_, i) =>
+  `images/hero-work/work-${String(i + 1).padStart(2, '0')}.jpg`
+)
+
+const heroBg = document.getElementById('hero-bg')
+if (heroBg) {
+  heroBg.innerHTML = HERO_PHOTOS.map((src, i) =>
+    `<img class="hero__photo${i === 0 ? ' is-active' : ''}" src="${src}" alt="">`
+  ).join('') + '<div class="hero__wash"></div>'
+
+  const heroSlides = [...heroBg.querySelectorAll('.hero__photo')]
+  let heroIndex = 0
+  setInterval(() => {
+    heroSlides[heroIndex].classList.remove('is-active')
+    heroIndex = (heroIndex + 1) % heroSlides.length
+    heroSlides[heroIndex].classList.add('is-active')
+  }, 5000)
+}
+
+const SLIDE_MS = 4000
+
+function slideHtml(item, title, isActive) {
+  const active = isActive ? ' is-active' : ''
   if (item.type === 'video') {
-    return `<video src="${item.src}" muted loop playsinline autoplay preload="metadata" aria-label="${item.alt || 'סרטון טיפול'}"></video>`
+    return `<div class="treatment-card__slide${active}"><video src="${item.src}" muted playsinline preload="metadata" aria-label="${title}"></video></div>`
   }
-  return `<img src="${item.src}" alt="${item.alt || 'תוצאת טיפול'}" loading="lazy" />`
+  return `<div class="treatment-card__slide${active}"><img src="${item.src}" alt="${title}" loading="lazy" /></div>`
 }
 
-const treatmentsMediaEl = document.getElementById('treatments-media')
-const treatmentsMediaTrack = document.getElementById('treatments-media-track')
-if (treatmentMedia.length && treatmentsMediaEl && treatmentsMediaTrack) {
-  const slides = treatmentMedia.map((item) => `<figure class="treatments-media__item">${mediaItemHtml(item)}</figure>`).join('')
-  treatmentsMediaTrack.innerHTML = slides + slides
-  treatmentsMediaEl.hidden = false
+function startCardSlideshow(wrap) {
+  const slides = [...wrap.querySelectorAll('.treatment-card__slide')]
+  if (slides.length < 2) return
+
+  let index = 0
+  let timer = null
+
+  function show(next) {
+    clearTimeout(timer)
+    slides[index].classList.remove('is-active')
+    const prevVideo = slides[index].querySelector('video')
+    if (prevVideo) {
+      prevVideo.pause()
+      prevVideo.currentTime = 0
+    }
+
+    index = next
+    slides[index].classList.add('is-active')
+    const video = slides[index].querySelector('video')
+    if (video) {
+      const goNext = () => schedule((index + 1) % slides.length)
+      video.onended = goNext
+      const play = video.play()
+      if (play && typeof play.catch === 'function') play.catch(() => schedule((index + 1) % slides.length, SLIDE_MS))
+    } else {
+      schedule((index + 1) % slides.length, SLIDE_MS)
+    }
+  }
+
+  function schedule(next, delay = 0) {
+    clearTimeout(timer)
+    timer = setTimeout(() => show(next), delay)
+  }
+
+  const firstVideo = slides[0].querySelector('video')
+  if (firstVideo) {
+    firstVideo.onended = () => show(1 % slides.length)
+    const play = firstVideo.play()
+    if (play && typeof play.catch === 'function') play.catch(() => schedule(1, SLIDE_MS))
+  } else {
+    schedule(1, SLIDE_MS)
+  }
 }
 
-document.getElementById('treatments-grid').innerHTML = treatments.map((t, i) => `
+document.getElementById('treatments-grid').innerHTML = treatments.map((t, i) => {
+  const media = t.media && t.media.length ? t.media : []
+  const slides = media.map((item, mi) => slideHtml(item, t.title, mi === 0)).join('')
+  return `
   <article class="treatment-card" data-index="${i}" tabindex="0" role="button" aria-label="פרטים על ${t.title}">
-    <div class="treatment-card__image-wrap"><img src="${t.image}" alt="${t.title}" loading="lazy" /></div>
+    <div class="treatment-card__image-wrap">${slides}</div>
     <div class="treatment-card__body">
       <h3>${t.title}</h3>
       <p>${t.description}</p>
       <span class="treatment-card__more">לחצי לפרטים →</span>
     </div>
-  </article>
-`).join('')
+  </article>`
+}).join('')
+
+document.querySelectorAll('.treatment-card__image-wrap').forEach(startCardSlideshow)
 
 const treatmentModal = document.getElementById('treatment-modal')
 const treatmentModalBody = document.getElementById('treatment-modal-body')

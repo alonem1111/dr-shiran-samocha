@@ -94,6 +94,7 @@ button {
   white-space: nowrap;
   text-align: right;
   margin-inline: 0;
+  margin-bottom: 1.1rem;
 }
 
 @media (max-width: 900px) {
@@ -255,7 +256,7 @@ button {
 /* Hero */
 .hero {
   position: relative;
-  min-height: 50vh;
+  min-height: 52vh;
   display: flex;
   align-items: center;
   padding-top: 5rem;
@@ -266,25 +267,36 @@ button {
 .hero__bg {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse at 70% 20%, rgba(212, 184, 150, 0.25) 0%, transparent 60%),
-    radial-gradient(ellipse at 20% 80%, rgba(232, 223, 212, 0.5) 0%, transparent 50%),
-    linear-gradient(180deg, var(--cream) 0%, var(--warm-white) 100%);
-  z-index: -1;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
 }
 
-.hero__bg::after {
-  content: '';
+.hero__photo {
   position: absolute;
-  top: 10%;
-  left: 5%;
-  width: 300px;
-  height: 300px;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' opacity='0.06'%3E%3Cpath fill='%238B7355' d='M50 5C30 30 10 50 10 70c0 15 15 25 40 25s40-10 40-25C90 50 70 30 50 5z'/%3E%3C/svg%3E")
-    no-repeat center / contain;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 28%;
+  opacity: 0;
+  transition: opacity 1.4s ease;
+}
+
+.hero__photo.is-active {
+  opacity: 1;
+}
+
+.hero__wash {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(247, 243, 238, 0.78) 0%, rgba(253, 251, 248, 0.84) 100%);
 }
 
 .hero__content {
+  position: relative;
+  z-index: 1;
   text-align: center;
   padding-block: 1.5rem 2rem;
 }
@@ -370,19 +382,31 @@ button {
 }
 
 .treatment-card__image-wrap {
+  position: relative;
   aspect-ratio: 3/2;
   overflow: hidden;
+  background: var(--cream);
 }
 
-.treatment-card__image-wrap img {
+.treatment-card__slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+
+.treatment-card__slide.is-active {
+  opacity: 1;
+}
+
+.treatment-card__image-wrap img,
+.treatment-card__image-wrap video {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.treatment-card:hover .treatment-card__image-wrap img {
-  transform: scale(1.05);
+  object-fit: contain;
+  display: block;
+  background: var(--cream);
 }
 
 .treatment-card__body {
@@ -509,57 +533,6 @@ button {
   white-space: normal;
   line-height: 1.35;
   padding-block: 0.95rem;
-}
-
-.treatments-media {
-  overflow: hidden;
-  margin: 0 0 3rem;
-  mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
-}
-
-.treatments-media[hidden] {
-  display: none;
-}
-
-.treatments-media__track {
-  display: flex;
-  gap: 1rem;
-  width: max-content;
-  animation: treatments-marquee 42s linear infinite;
-}
-
-.treatments-media:hover .treatments-media__track {
-  animation-play-state: paused;
-}
-
-.treatments-media__item {
-  flex: 0 0 auto;
-  height: 260px;
-  border-radius: var(--radius);
-  overflow: hidden;
-  background: var(--cream);
-  box-shadow: var(--shadow);
-}
-
-.treatments-media__item img,
-.treatments-media__item video {
-  height: 100%;
-  width: auto;
-  max-width: 440px;
-  object-fit: contain;
-  display: block;
-  background: var(--cream);
-}
-
-@keyframes treatments-marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .treatments-media__track {
-    animation: none;
-  }
 }
 
 /* Packages */
@@ -1100,14 +1073,5 @@ button {
   .packages__grid--two {
     grid-template-columns: 1fr;
     max-width: 400px;
-  }
-
-  .treatments-media__item {
-    height: 210px;
-  }
-
-  .treatments-media__item img,
-  .treatments-media__item video {
-    max-width: 320px;
   }
 }
