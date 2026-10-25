@@ -224,7 +224,7 @@ button {
   flex-shrink: 1;
   padding: 0.65rem 1rem;
   font-size: 0.8rem;
-  max-width: 220px;
+  max-width: 240px;
 }
 
 .header__burger {
@@ -310,8 +310,9 @@ button {
 }
 
 .hero__tagline-he {
-  font-size: 1.05rem;
-  color: var(--text-muted);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--text);
   margin-bottom: 1.5rem;
 }
 
@@ -320,6 +321,10 @@ button {
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.hero .btn-outline {
+  background: rgba(253, 251, 248, 0.88);
 }
 
 /* About */
@@ -936,12 +941,16 @@ button {
   border: 1px solid var(--sand);
 }
 
-.contact__cta-tagline {
-  font-family: var(--font-serif);
-  font-size: 1.5rem;
-  font-style: italic;
+.contact__text .contact__cta-tagline {
+  font-size: clamp(1.35rem, 2.6vw, 1.9rem);
+  font-style: normal;
+  font-weight: 700;
   color: var(--gold-dark);
   margin-top: 2rem;
+  margin-bottom: 0;
+  text-align: center;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
 }
 
 /* Footer */

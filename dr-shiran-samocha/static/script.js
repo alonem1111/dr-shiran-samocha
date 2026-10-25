@@ -252,7 +252,7 @@ function openTreatmentModal(index) {
         <dd>${t.painRecovery}</dd>
       </div>
     </dl>
-    <a href="/booking/" class="btn btn-primary treatment-modal__cta">אני רוצה להרגיש יפה יותר</a>
+    <a href="/booking/" class="btn btn-primary treatment-modal__cta">שירן בואי נתאם ייעוץ</a>
   `
   treatmentModal.hidden = false
   document.body.style.overflow = 'hidden'

@@ -1,7 +1,7 @@
 export const site = {
   nameEn: 'Dr. Shiran Samocha',
   specialtyEn: 'Medical Aesthetics',
-  taglineEn: 'Natural. Elegant. You.',
+  taglineEn: 'טבעית. אלגנטית. את',
   taglineHe: 'תוצאות טבעיות ואלגנטיות',
   domain: 'www.Dr-Shirans-Esthetics.com',
   url: 'https://www.dr-shirans-esthetics.com',
